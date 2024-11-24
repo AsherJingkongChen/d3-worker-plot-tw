@@ -7,7 +7,7 @@ import os
 import re
 
 
-def download_wq_1402():
+def download_wq1402_csv():
     try:
         conn = HTTPSConnection("statdb.mol.gov.tw")
         conn.request(
@@ -79,6 +79,6 @@ def check_data_json():
 
 if __name__ == "__main__":
     os.makedirs("data", exist_ok=True)
-    download_wq_1402()
+    download_wq1402_csv()
     make_data_json()
-    check_data_json()
+    assert check_data_json()
